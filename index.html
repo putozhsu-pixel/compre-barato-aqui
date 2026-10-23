@@ -38,31 +38,16 @@ h2{font-size:23px;margin:14px 0}.hint{font-size:13px;color:#586971;line-height:1
     <button class="cat" data-cat="Moda">👕 Moda</button>
   </div>
   <h2>Produtos em destaque</h2>
-  <div class="hint">Antes de publicar: troque os produtos, preços e links demonstrativos pelos dados reais. Cada botão deve conter o link de afiliado específico gerado na sua conta do Mercado Livre.</div>
+  <div class="hint">Confira o preço e a disponibilidade no Mercado Livre antes de comprar. Este é um link de afiliado.</div>
   <div class="grid" id="grid">
-    <article class="product" data-cat="Celulares" data-name="Celular smartphone">
-      <div class="pic">📱</div><div class="details"><h3>Celular — exemplo</h3><div class="price">Confira o preço</div><div class="small">Preço a confirmar na loja</div><a class="btn affiliate" href="#" data-link="COLE_SEU_LINK_AQUI">Ver oferta no Mercado Livre</a></div>
-    </article>
-    <article class="product" data-cat="Eletrônicos" data-name="Fone de ouvido bluetooth">
-      <div class="pic">🎧</div><div class="details"><h3>Fone Bluetooth — exemplo</h3><div class="price">Confira o preço</div><div class="small">Preço a confirmar na loja</div><a class="btn affiliate" href="#" data-link="COLE_SEU_LINK_AQUI">Ver oferta no Mercado Livre</a></div>
-    </article>
-    <article class="product" data-cat="Eletrônicos" data-name="Relógio smartwatch">
-      <div class="pic">⌚</div><div class="details"><h3>Relógio inteligente — exemplo</h3><div class="price">Confira o preço</div><div class="small">Preço a confirmar na loja</div><a class="btn affiliate" href="#" data-link="COLE_SEU_LINK_AQUI">Ver oferta no Mercado Livre</a></div>
-    </article>
-    <article class="product" data-cat="Casa" data-name="Fritadeira air fryer cozinha">
-      <div class="pic">🍟</div><div class="details"><h3>Fritadeira elétrica — exemplo</h3><div class="price">Confira o preço</div><div class="small">Preço a confirmar na loja</div><a class="btn affiliate" href="#" data-link="COLE_SEU_LINK_AQUI">Ver oferta no Mercado Livre</a></div>
-    </article>
-    <article class="product" data-cat="Eletrônicos" data-name="Notebook computador">
-      <div class="pic">💻</div><div class="details"><h3>Notebook — exemplo</h3><div class="price">Confira o preço</div><div class="small">Preço a confirmar na loja</div><a class="btn affiliate" href="#" data-link="COLE_SEU_LINK_AQUI">Ver oferta no Mercado Livre</a></div>
-    </article>
-    <article class="product" data-cat="Casa" data-name="Organizador utensílio casa">
-      <div class="pic">🏠</div><div class="details"><h3>Organizador para casa — exemplo</h3><div class="price">Confira o preço</div><div class="small">Preço a confirmar na loja</div><a class="btn affiliate" href="#" data-link="COLE_SEU_LINK_AQUI">Ver oferta no Mercado Livre</a></div>
-    </article>
-    <article class="product" data-cat="Moda" data-name="Camiseta roupa">
-      <div class="pic">👕</div><div class="details"><h3>Camiseta — exemplo</h3><div class="price">Confira o preço</div><div class="small">Preço a confirmar na loja</div><a class="btn affiliate" href="#" data-link="COLE_SEU_LINK_AQUI">Ver oferta no Mercado Livre</a></div>
-    </article>
-    <article class="product" data-cat="Casa" data-name="Luminária decoração">
-      <div class="pic">💡</div><div class="details"><h3>Luminária — exemplo</h3><div class="price">Confira o preço</div><div class="small">Preço a confirmar na loja</div><a class="btn affiliate" href="#" data-link="COLE_SEU_LINK_AQUI">Ver oferta no Mercado Livre</a></div>
+    <article class="product" data-cat="Celulares" data-name="Smartphone Moto G06 128GB 4GB RAM 8GB RAM Boost câmera 50mp bateria 5200mah azul">
+      <div class="pic" aria-label="Ilustração de smartphone">📱</div>
+      <div class="details">
+        <h3>Smartphone Moto G06 128GB, 4GB RAM + 8GB RAM Boost, câmera 50 MP, bateria 5200 mAh — Azul</h3>
+        <div class="price">R$ 799,00</div>
+        <div class="small">Preço informado ao publicar; confirme o preço, estoque e frete no Mercado Livre.</div>
+        <a class="btn affiliate" href="https://meli.la/1uE7CeL" target="_blank" rel="noopener noreferrer">Ver oferta no Mercado Livre</a>
+      </div>
     </article>
   </div>
   <div class="empty" id="empty">Nenhum produto encontrado. Tente outra busca.</div>
@@ -73,6 +58,6 @@ const cards=[...document.querySelectorAll('.product')], search=document.querySel
 function filter(){let count=0;const q=search.value.trim().toLocaleLowerCase('pt-BR');cards.forEach(c=>{let ok=(category==='Todos'||c.dataset.cat===category)&& (c.dataset.name+' '+c.innerText).toLocaleLowerCase('pt-BR').includes(q);c.style.display=ok?'flex':'none';if(ok)count++});empty.style.display=count?'none':'block'}
 document.querySelector('#searchForm').addEventListener('submit',e=>{e.preventDefault();filter()});search.addEventListener('input',filter);
 document.querySelectorAll('.cat').forEach(b=>b.addEventListener('click',()=>{category=b.dataset.cat;document.querySelectorAll('.cat').forEach(x=>x.classList.toggle('active',x===b));filter()}));
-document.querySelectorAll('.affiliate').forEach(a=>a.addEventListener('click',e=>{const url=a.dataset.link;if(!url||url==='COLE_SEU_LINK_AQUI'||url==='#'){e.preventDefault();alert('Este botão ainda não foi configurado. Edite o arquivo index.html e cole seu link oficial de afiliado do Mercado Livre.')}}));
+
 </script>
 </body></html>

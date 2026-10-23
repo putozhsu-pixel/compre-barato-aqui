@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="COMPRE BARATO AQUI: encontre produtos e ofertas.">
+<title>COMPRE BARATO AQUI | Ofertas</title>
+<style>
+:root{--yellow:#ffe000;--dark:#14232d;--bg:#f5f7f8;--green:#128447}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);font-family:Arial,sans-serif;color:#18252c}
+header{background:var(--dark);color:#fff;padding:15px 0}.container{width:min(100% - 28px,1050px);margin:auto}
+.brand{font-weight:900;font-size:clamp(19px,4vw,28px)}.brand span{color:var(--yellow)}.subtitle{font-size:12px;color:#dbe3e7;margin-top:4px}
+.search{display:flex;gap:8px;margin-top:15px}.search input{min-width:0;flex:1;padding:13px;border:0;border-radius:8px;font-size:16px}.search button,.btn{background:var(--yellow);border:0;border-radius:8px;padding:12px 16px;font-weight:bold;cursor:pointer;color:#111}
+.hero{background:#fff;padding:25px 0;border-bottom:1px solid #e1e7ea}.hero h1{font-size:clamp(25px,6vw,40px);margin:0 0 8px}.hero p{line-height:1.5;margin:0 0 16px;color:#4a5b63}.hero h1 span{color:#b58c00}
+.categories{display:flex;gap:8px;overflow:auto;padding:16px 0}.cat{white-space:nowrap;background:white;border:1px solid #dbe2e6;border-radius:30px;padding:10px 14px;cursor:pointer}.cat.active{background:var(--yellow);border-color:var(--yellow);font-weight:bold}
+h2{font-size:23px;margin:14px 0}.hint{font-size:13px;color:#586971;line-height:1.5;background:#fff8d8;border:1px solid #f0dfa0;border-radius:8px;padding:12px;margin:12px 0 17px}
+.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}.product{background:#fff;border:1px solid #e1e7ea;border-radius:10px;overflow:hidden;display:flex;flex-direction:column}.pic{height:125px;background:#edf1f3;display:grid;place-items:center;font-size:52px}.details{padding:12px;display:flex;flex-direction:column;gap:8px;flex:1}.details h3{font-size:15px;line-height:1.35;margin:0}.price{font-size:18px;font-weight:bold;color:var(--green)}.small{font-size:12px;color:#69777d}.btn{display:block;text-align:center;text-decoration:none;font-size:13px;margin-top:auto}.empty{display:none;text-align:center;padding:25px;background:#fff;border-radius:8px}.disclosure{font-size:12px;line-height:1.6;color:#dbe3e7;background:var(--dark);padding:20px 0;margin-top:30px}.disclosure a{color:var(--yellow)}
+@media(max-width:800px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:380px){.grid{gap:8px}.details{padding:9px}.pic{height:100px}.details h3{font-size:13px}}
+</style>
+</head>
+<body>
+<header><div class="container">
+  <div class="brand">🛒 COMPRE <span>BARATO</span> AQUI</div>
+  <div class="subtitle">Ofertas e produtos selecionados para você</div>
+  <form class="search" id="searchForm"><input id="search" placeholder="Buscar produto..." aria-label="Buscar produto"><button>Buscar</button></form>
+</div></header>
+<section class="hero"><div class="container">
+  <h1>Encontre sua próxima <span>oferta!</span></h1>
+  <p>Veja produtos, compare as informações e confira o preço atualizado diretamente na loja.</p>
+  <a class="btn" href="#produtos" style="display:inline-block">VER PRODUTOS ↓</a>
+</div></section>
+<main class="container" id="produtos">
+  <div class="categories" aria-label="Filtrar categorias">
+    <button class="cat active" data-cat="Todos">Todos</button>
+    <button class="cat" data-cat="Celulares">📱 Celulares</button>
+    <button class="cat" data-cat="Eletrônicos">🎧 Eletrônicos</button>
+    <button class="cat" data-cat="Casa">🏠 Casa</button>
+    <button class="cat" data-cat="Moda">👕 Moda</button>
+  </div>
+  <h2>Produtos em destaque</h2>
+  <div class="hint">Confira o preço e a disponibilidade no Mercado Livre antes de comprar. Este é um link de afiliado.</div>
+  <div class="grid" id="grid">
+    <article class="product" data-cat="Celulares" data-name="Smartphone Moto G06 128GB 4GB RAM 8GB RAM Boost câmera 50mp bateria 5200mah azul">
+      <div class="pic" aria-label="Ilustração de smartphone">📱</div>
+      <div class="details">
+        <h3>Smartphone Moto G06 128GB, 4GB RAM + 8GB RAM Boost, câmera 50 MP, bateria 5200 mAh — Azul</h3>
+        <div class="price">R$ 799,00</div>
+        <div class="small">Preço informado ao publicar; confirme o preço, estoque e frete no Mercado Livre.</div>
+        <a class="btn affiliate" href="https://meli.la/1uE7CeL" target="_blank" rel="noopener noreferrer">Ver oferta no Mercado Livre</a>
+      </div>
+    </article>
+  </div>
+  <div class="empty" id="empty">Nenhum produto encontrado. Tente outra busca.</div>
+</main>
+<footer class="disclosure"><div class="container">Este site pode conter links de afiliados. Podemos receber comissão por compras elegíveis realizadas por esses links, sem custo adicional para você. Preços, estoque, frete e condições devem ser confirmados na página do Mercado Livre. COMPRE BARATO AQUI não é o site oficial do Mercado Livre.</div></footer>
+<script>
+const cards=[...document.querySelectorAll('.product')], search=document.querySelector('#search'), empty=document.querySelector('#empty');let category='Todos';
+function filter(){let count=0;const q=search.value.trim().toLocaleLowerCase('pt-BR');cards.forEach(c=>{let ok=(category==='Todos'||c.dataset.cat===category)&& (c.dataset.name+' '+c.innerText).toLocaleLowerCase('pt-BR').includes(q);c.style.display=ok?'flex':'none';if(ok)count++});empty.style.display=count?'none':'block'}
+document.querySelector('#searchForm').addEventListener('submit',e=>{e.preventDefault();filter()});search.addEventListener('input',filter);
+document.querySelectorAll('.cat').forEach(b=>b.addEventListener('click',()=>{category=b.dataset.cat;document.querySelectorAll('.cat').forEach(x=>x.classList.toggle('active',x===b));filter()}));
+
+</script>
+</body></html>
